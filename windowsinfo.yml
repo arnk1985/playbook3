@@ -1,0 +1,16 @@
+---
+- name: Gather Windows system information
+  hosts: windows
+  gather_facts: yes
+
+  tasks:
+
+    - name: Display system information
+      debug:
+        msg:
+          - "Hostname: {{ ansible_hostname }}"
+          - "OS: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+          - "Architecture: {{ ansible_architecture }}"
+          - "Total Memory MB: {{ ansible_memtotal_mb }}"
+          - "CPU Cores: {{ ansible_processor_cores }}"
+          - "IP Address: {{ ansible_ip_addresses }}"
